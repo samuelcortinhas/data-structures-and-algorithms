@@ -2,6 +2,7 @@ def recursive_binary_search(lst, target):
     """
     Assumes list is sorted.
     O(log(n)) time complexity
+    O(log(n)) space complexity
     """
     if len(lst) == 0:
         return False

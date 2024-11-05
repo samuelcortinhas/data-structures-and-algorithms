@@ -2,6 +2,7 @@ def binary_search(lst, target):
     """
     Assumes list is sorted.
     O(log(n)) time complexity
+    O(1) space complexity
     """
     start = 0
     end = len(lst) - 1

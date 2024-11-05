@@ -1,5 +1,8 @@
 def linear_search(lst, target):
-    """O(n) time complexity"""
+    """
+    O(n) time complexity
+    O(1) space complexity
+    """
     for i, x in enumerate(lst):
         if x == target:
             return i
