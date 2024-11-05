@@ -15,6 +15,7 @@ def binary_search(lst, target):
         else:
             end = midpoint - 1
 
+
 if __name__ == "__main__":
     lst = range(10)
 
