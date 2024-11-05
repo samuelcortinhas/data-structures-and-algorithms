@@ -1,5 +1,8 @@
 def binary_search(lst, target):
-    """Assumes list is sorted"""
+    """
+    Assumes list is sorted.
+    O(log(n)) time complexity
+    """
     start = 0
     end = len(lst) - 1
 

@@ -1,5 +1,8 @@
 def recursive_binary_search(lst, target):
-    """Assumes list is sorted"""
+    """
+    Assumes list is sorted.
+    O(log(n)) time complexity
+    """
     if len(lst) == 0:
         return False
 
