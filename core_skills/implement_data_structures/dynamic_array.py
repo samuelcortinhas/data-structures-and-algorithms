@@ -1,4 +1,7 @@
 class DynamicArray:
+    """
+    An array that can change in size as elements are added or removed
+    """
 
     def __init__(self, capacity: int):
         self.capacity = capacity
