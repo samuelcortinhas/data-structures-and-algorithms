@@ -36,6 +36,15 @@ class LinkedList:
 
         return i
 
+    def add(self, value):
+        """
+        Add value to head of linked list.
+        O(1) time complexity
+        """
+        node = Node(value)
+        node.next_node = self.head
+        self.head = node
+
 
 if __name__ == "__main__":
     print(Node(5))
