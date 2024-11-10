@@ -4,11 +4,9 @@ class Node:
     Each node stores some data and a reference to the next node in the list.
     """
 
-    data = None
-    next_node = None
-
     def __init__(self, data):
         self.data = data
+        self.next_node = None
 
     def __repr__(self):
         return "<Node data: {}>".format(self.data)
