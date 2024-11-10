@@ -24,6 +24,18 @@ class LinkedList:
     def _is_empty(self):
         return self.head == None
 
+    def __len__(self):
+        if self._is_empty():
+            return 0
+
+        i = 1
+        current = self.head
+        while current.next_node:
+            i += 1
+            current = current.next_node
+
+        return i
+
 
 if __name__ == "__main__":
     print(Node(5))
