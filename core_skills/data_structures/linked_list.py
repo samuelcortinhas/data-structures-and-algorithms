@@ -16,7 +16,7 @@ class Node:
 
 class LinkedList:
     """
-    A linked list made of nodes.
+    A singly linked list made up of nodes.
     Each node stores some data and a reference to the next node in the list.
     """
 
