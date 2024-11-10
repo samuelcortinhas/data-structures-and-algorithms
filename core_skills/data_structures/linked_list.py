@@ -21,6 +21,9 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
+    def _is_empty(self):
+        return self.head == None
+
 
 if __name__ == "__main__":
     print(Node(5))
