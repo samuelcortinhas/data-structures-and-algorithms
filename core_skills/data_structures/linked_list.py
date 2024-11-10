@@ -38,12 +38,28 @@ class LinkedList:
 
     def add(self, value):
         """
-        Add value to head of linked list.
-        O(1) time complexity
+        Add node with value to head of linked list.
+        O(1) time complexity.
         """
         node = Node(value)
         node.next_node = self.head
         self.head = node
+
+    def search(self, value):
+        """
+        Search for value in linked list.
+        Return true if found otherwise false.
+        """
+        if self._is_empty():
+            return False
+
+        current = self.head
+        while current:
+            if current.data == value:
+                return True
+            current = current.next_node
+
+        return False
 
 
 if __name__ == "__main__":
