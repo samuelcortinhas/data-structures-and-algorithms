@@ -136,6 +136,13 @@ class LinkedList:
 
         return values
 
+    def __iter__(self):
+        current = self.head
+
+        while current:
+            yield current
+            current = current.next_node
+
     def __repr__(self):
         """
         String representation of linked list.
