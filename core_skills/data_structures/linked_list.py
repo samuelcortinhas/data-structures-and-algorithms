@@ -62,21 +62,25 @@ class LinkedList:
         Insert node with value into linked list at specified index.
         O(n) time complexity.
         """
+        if index > self.__len__:
+            return
+
         if index == 0:
-            self.add(value)
+            self.insert_head(value)
             return
 
         current = self.head
-        new_node = Node(value)
 
         i = 0
-        current = self.head
-        while (i < index) and current:
+        while i < index - 1:
+            if not current:
+                return
             i += 1
             current = current.next_node
 
         node = Node(value)
-        node.next_node = current.next_node.next_node
+        if current.next_node:
+            node.next_node = current.next_node.next_node
         current.next_node = node
 
     def node_at_index(self, index):
@@ -132,4 +136,5 @@ if __name__ == "__main__":
     L.insert_head(1)
     L.insert_head(2)
     L.insert_head(3)
+    L.insert(value=10, index=2)
     print(L)
