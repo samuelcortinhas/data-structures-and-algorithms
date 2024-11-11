@@ -61,7 +61,7 @@ class LinkedList:
 
         current.next_node = Node(value)
 
-    def search(self, value):
+    def search_value(self, value):
         """
         Search for node with value in linked list.
         O(n) time complexity.
