@@ -114,6 +114,28 @@ class LinkedList:
 
         return current.data
 
+    def remove_value(self, value):
+        """
+        Removes (and returns) node with value from linked list.
+        O(n) time complexity.
+        """
+        previous = None
+        current = self.head
+
+        while current:
+            if (current.data == value) and (current == self.head):
+                self.head = current.next_node
+                return current
+
+            elif current.data == value:
+                previous.next_node = current.next_node
+                return current
+
+            previous = current
+            current = current.next_node
+
+        return
+
     def get_values(self):
         """
         Returns an array of all the values in order.
