@@ -46,6 +46,21 @@ class LinkedList:
         node.next_node = self.head
         self.head = node
 
+    def insert_tail(self, value):
+        """
+        Add node with value to the tail of linked list.
+        O(n) time complexity.
+        """
+        current = self.head
+        if not current:
+            self.insert_head(value)
+            return
+
+        while current.next_node:
+            current = current.next_node
+
+        current.next_node = Node(value)
+
     def search(self, value):
         """
         Search for node with value in linked list.
