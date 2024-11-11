@@ -48,20 +48,14 @@ class LinkedList:
 
     def search(self, value):
         """
-        Search for value in linked list.
-        Return true if found otherwise false.
+        Search for node with value in linked list.
         O(n) time complexity.
         """
-        if self._is_empty():
-            return False
-
         current = self.head
         while current:
             if current.data == value:
-                return True
+                return current
             current = current.next_node
-
-        return False
 
     def insert(self, value, index):
         """
