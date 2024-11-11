@@ -25,16 +25,17 @@ class LinkedList:
         return self.head == None
 
     def __len__(self):
-        if self._is_empty():
-            return 0
-
-        i = 1
+        """
+        Returns number of nodes in linked list.
+        O(n) time complexity.
+        """
+        count = 0
         current = self.head
-        while current.next_node:
-            i += 1
+        while current:
+            count += 1
             current = current.next_node
 
-        return i
+        return count
 
     def add(self, value):
         """
