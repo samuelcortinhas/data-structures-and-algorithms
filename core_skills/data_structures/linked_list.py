@@ -72,12 +72,12 @@ class LinkedList:
                 return current
             current = current.next_node
 
-    def insert(self, value, index):
+    def insert_at_index(self, value, index):
         """
         Insert node with value into linked list at specified index.
         O(n) time complexity.
         """
-        if index > self.__len__:
+        if index > self.__len__():
             return
 
         if index == 0:
@@ -95,28 +95,24 @@ class LinkedList:
 
         node = Node(value)
         if current.next_node:
-            node.next_node = current.next_node.next_node
+            node.next_node = current.next_node
         current.next_node = node
 
-    def node_at_index(self, index):
+    def get_at_index(self, index):
         """
         Returns value of node at index.
         O(n) time complexity.
         """
-        if self._is_empty():
+        if index > self.__len__():
             return
 
         i = 0
         current = self.head
         while i < index:
-            if not current:
-                return
-
             i += 1
             current = current.next_node
 
-        if current:
-            return current.data
+        return current.data
 
     def get_values(self):
         """
@@ -158,5 +154,5 @@ if __name__ == "__main__":
     L.insert_head(1)
     L.insert_head(2)
     L.insert_head(3)
-    L.insert(value=10, index=2)
+    L.insert_at_index(value=10, index=2)
     print(L)
