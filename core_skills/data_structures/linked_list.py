@@ -100,7 +100,7 @@ class LinkedList:
 
     def get_at_index(self, index):
         """
-        Returns value of node at index.
+        Returns node at specified index.
         O(n) time complexity.
         """
         if index > self.__len__():
@@ -112,7 +112,7 @@ class LinkedList:
             i += 1
             current = current.next_node
 
-        return current.data
+        return current
 
     def remove_value(self, value):
         """
