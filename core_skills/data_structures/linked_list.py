@@ -49,6 +49,7 @@ class LinkedList:
         """
         Search for value in linked list.
         Return true if found otherwise false.
+        O(n) time complexity.
         """
         if self._is_empty():
             return False
@@ -60,6 +61,48 @@ class LinkedList:
             current = current.next_node
 
         return False
+
+    def insert(self, value, index):
+        """
+        Insert node with value into linked list at specified index.
+        O(n) time complexity.
+        """
+        if index == 0:
+            self.add(value)
+            return
+
+        current = self.head
+        new_node = Node(value)
+
+        i = 0
+        current = self.head
+        while (i < index) and current:
+            i += 1
+            current = current.next_node
+
+        node = Node(value)
+        node.next_node = current.next_node.next_node
+        current.next_node = node
+
+    def node_at_index(self, index):
+        """
+        Returns value of node at index.
+        O(n) time complexity.
+        """
+        if self._is_empty():
+            return
+
+        i = 0
+        current = self.head
+        while i < index:
+            if not current:
+                return
+
+            i += 1
+            current = current.next_node
+
+        if current:
+            return current.data
 
 
 if __name__ == "__main__":
