@@ -123,6 +123,19 @@ class LinkedList:
 
         return values
 
+    def __repr__(self):
+        """
+        String representation of linked list.
+        O(n) time complexity.
+        """
+        values = self.get_values()
+        return "Linked list: " + " -> ".join([str(v) for v in values])
+
 
 if __name__ == "__main__":
     print(Node(5))
+    L = LinkedList()
+    L.insert_head(1)
+    L.insert_head(2)
+    L.insert_head(3)
+    print(L)
