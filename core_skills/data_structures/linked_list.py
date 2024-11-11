@@ -39,7 +39,7 @@ class LinkedList:
 
     def insert_head(self, value):
         """
-        Add node with value to the head of linked list.
+        Adds node with value to the head of linked list.
         O(1) time complexity.
         """
         node = Node(value)
@@ -48,7 +48,7 @@ class LinkedList:
 
     def insert_tail(self, value):
         """
-        Add node with value to the tail of linked list.
+        Adds node with value to the tail of linked list.
         O(n) time complexity.
         """
         current = self.head
@@ -63,7 +63,7 @@ class LinkedList:
 
     def insert_at_index(self, value, index):
         """
-        Insert node with value into linked list at specified index.
+        Inserts node with value into linked list at specified index.
         O(n) time complexity.
         """
         if index > self.__len__():
@@ -89,7 +89,7 @@ class LinkedList:
 
     def search_value(self, value):
         """
-        Search for node with value in linked list.
+        Searches for node with value in linked list.
         O(n) time complexity.
         """
         current = self.head
