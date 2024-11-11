@@ -136,6 +136,30 @@ class LinkedList:
 
         return
 
+    def remove_at_index(self, index):
+        """
+        Removes node with value into linked list at specified index.
+        O(n) time complexity.
+        """
+        if index > self.__len__():
+            return
+
+        current = self.head
+
+        if index == 0:
+            self.head = current.next_node
+            return current
+
+        i = 0
+        while i < index - 1:
+            if not current:
+                return
+            i += 1
+            current = current.next_node
+
+        current.next_node = current.next_node.next_node
+        return current.next_node
+
     def get_values(self):
         """
         Returns an array of all the values in order.
