@@ -37,9 +37,9 @@ class LinkedList:
 
         return count
 
-    def add(self, value):
+    def insert_head(self, value):
         """
-        Add node with value to head of linked list.
+        Add node with value to the head of linked list.
         O(1) time complexity.
         """
         node = Node(value)
