@@ -108,7 +108,7 @@ class LinkedList:
 
         i = 0
         current = self.head
-        while i < index:
+        while i < index - 1:
             i += 1
             current = current.next_node
 
