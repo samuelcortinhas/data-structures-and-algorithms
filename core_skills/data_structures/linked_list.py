@@ -196,9 +196,16 @@ class LinkedList:
 
 if __name__ == "__main__":
     print(Node(5))
+
     L = LinkedList()
     L.insert_head(1)
-    L.insert_head(2)
-    L.insert_head(3)
+    L.insert_tail(2)
+    L.insert_tail(3)
     L.insert_at_index(value=10, index=2)
+
+    print(L.search_value(10))
+    print(L.get_at_index(4))
+
+    L.remove_value(10)
+    L.remove_at_index(0)
     print(L)
