@@ -104,6 +104,24 @@ class LinkedList:
         if current:
             return current.data
 
+    def get_values(self):
+        """
+        Returns an array of all the values in order.
+        O(n) time complexity.
+        """
+        if self._is_empty():
+            return []
+
+        values = []
+        current = self.head
+        while current.next_node:
+            values.append(current.data)
+            current = current.next_node
+
+        values.append(current.data)
+
+        return values
+
 
 if __name__ == "__main__":
     print(Node(5))
