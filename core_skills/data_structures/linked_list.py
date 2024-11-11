@@ -61,17 +61,6 @@ class LinkedList:
 
         current.next_node = Node(value)
 
-    def search_value(self, value):
-        """
-        Search for node with value in linked list.
-        O(n) time complexity.
-        """
-        current = self.head
-        while current:
-            if current.data == value:
-                return current
-            current = current.next_node
-
     def insert_at_index(self, value, index):
         """
         Insert node with value into linked list at specified index.
@@ -97,6 +86,17 @@ class LinkedList:
         if current.next_node:
             node.next_node = current.next_node
         current.next_node = node
+
+    def search_value(self, value):
+        """
+        Search for node with value in linked list.
+        O(n) time complexity.
+        """
+        current = self.head
+        while current:
+            if current.data == value:
+                return current
+            current = current.next_node
 
     def get_at_index(self, index):
         """
