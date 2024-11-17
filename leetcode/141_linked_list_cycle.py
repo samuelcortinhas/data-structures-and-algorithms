@@ -33,3 +33,31 @@ class Solution(object):
             if i > 10**4:
                 return True
         return False
+
+    def hasCycleTwoPointer(self, head):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        # idea: cycle occurs if a node has 2 nodes pointing to it (except at head)
+        current = head
+        if not head:
+            return False
+
+        prev = None
+
+        while current:
+            try:
+                if current.prev:
+                    return True
+            except:
+                pass
+
+            current.prev = prev
+
+            next = current.next
+            if not next:
+                return False
+
+            prev = current
+            current = next
