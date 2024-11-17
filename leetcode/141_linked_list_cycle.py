@@ -21,3 +21,15 @@ class Solution(object):
             current = current.next
 
         return False
+
+    def hasCycleHacky(self, head):
+        # Hacky solution but because of constraint len list < 10^4
+        # Time O(n), Memory O(1)
+        current = head
+        i = 0
+        while current:
+            current = current.next
+            i += 1
+            if i > 10**4:
+                return True
+        return False
