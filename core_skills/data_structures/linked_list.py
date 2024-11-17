@@ -108,7 +108,7 @@ class LinkedList:
 
         i = 0
         current = self.head
-        while i < index - 1:
+        while i < index:
             i += 1
             current = current.next_node
 
@@ -201,11 +201,14 @@ if __name__ == "__main__":
     L.insert_head(1)
     L.insert_tail(2)
     L.insert_tail(3)
+    print(L)
+
     L.insert_at_index(value=10, index=2)
+    print(L)
 
     print(L.search_value(10))
-    print(L.get_at_index(4))
+    print(L.get_at_index(3))
 
     L.remove_value(10)
-    L.remove_at_index(0)
+    L.remove_at_index(1)
     print(L)
