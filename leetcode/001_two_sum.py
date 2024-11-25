@@ -6,14 +6,23 @@ class Solution(object):
         :rtype: List[int]
         """
         # Time O(n), Memory O(n)
-        hashmap = {v: i for i, v in enumerate(nums)}
+        seen = {}
+        for i, n in enumerate(nums):
+            diff = target - n
+            if diff in seen:
+                return [seen[diff], i]
+            seen[n] = i
 
-        for i, x in enumerate(nums):
-            diff = target - x
+    # def twoSumAlt(self, nums, target):
+    #     # Time O(n), Memory O(n)
+    #     hashmap = {v: i for i, v in enumerate(nums)}
 
-            j = hashmap.get(diff)
-            if j and j != i:
-                return [i, j]
+    #     for i, x in enumerate(nums):
+    #         diff = target - x
+
+    #         j = hashmap.get(diff)
+    #         if j and j != i:
+    #             return [i, j]
 
     # def twoSumBruteForce(self, nums, target):
     #     # Time O(n^2), Memory O(1)
