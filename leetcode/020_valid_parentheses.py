@@ -9,11 +9,11 @@ class Solution(object):
 
         stack = []
         for b in s:
-            if b in comps:
+            if b in "([{":
                 stack.append(b)
             else:
-                if (len(stack) > 0) and (comps.get(stack[-1]) == b):
-                    stack = stack[:-1]
+                if stack and (comps.get(stack[-1]) == b):
+                    stack.pop()
                 else:
                     return False
 
