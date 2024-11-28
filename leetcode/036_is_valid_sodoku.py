@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
-        # Time O(9^2), Memory O(9^2)
+        # Time O(9^2), Memory O(9)
         board_T = [[board[j][i] for j in range(9)] for i in range(9)]
 
         for b in [board, board_T]:
