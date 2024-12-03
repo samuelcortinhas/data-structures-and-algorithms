@@ -2,13 +2,14 @@ from typing import List
 
 
 class Solution:
+
+    def encode_generator(self, strs):
+        for x in strs:
+            yield "{}#".format(len(x)) + x
+
     def encode(self, strs: List[str]) -> str:
         # Time O(n), Memory O(n)
-        lens = [len(s) for s in strs]
-        out = ""
-        for x in strs:
-            out = out + "{}#".format(len(x)) + x
-        return out
+        return "".join(self.encode_generator(strs))
 
     def decode(self, s: str) -> List[str]:
         # Time O(n), Memory O(n)
