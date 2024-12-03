@@ -3,14 +3,10 @@ from typing import List
 
 class Solution:
     # leetcode premium problem
-    def encode_generator(self, strs):
-        # Use generator as string concatenation is O(n*2) otherwise
-        for x in strs:
-            yield "{}#".format(len(x)) + x
 
     def encode(self, strs: List[str]) -> str:
         # Time O(n), Memory O(n)
-        return "".join(self.encode_generator(strs))
+        return "".join("{}#".format(len(x)) + x for x in strs)
 
     def decode(self, s: str) -> List[str]:
         # Time O(n), Memory O(n)
