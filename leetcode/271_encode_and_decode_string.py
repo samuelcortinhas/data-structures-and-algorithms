@@ -2,8 +2,9 @@ from typing import List
 
 
 class Solution:
-
+    # leetcode premium problem
     def encode_generator(self, strs):
+        # Use generator as string concatenation is O(n*2) otherwise
         for x in strs:
             yield "{}#".format(len(x)) + x
 
