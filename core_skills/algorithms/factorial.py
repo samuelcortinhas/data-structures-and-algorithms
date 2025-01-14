@@ -1,5 +1,5 @@
 def factorial_rec(n: int):
-    # Time O(n), Memeory O(n)
+    # Time O(n), Memory O(n)
     if n == 1:
         return 1
 
