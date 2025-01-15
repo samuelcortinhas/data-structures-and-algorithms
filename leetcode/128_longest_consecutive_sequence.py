@@ -9,7 +9,7 @@ class Solution:
         # every number visited at most twice
         seen = set(nums)
         longest = 0
-        for n in nums:
+        for n in seen:
             if (n - 1) not in seen:
                 i = n + 1
                 while i in seen:
