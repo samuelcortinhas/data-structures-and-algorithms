@@ -10,12 +10,12 @@ class Solution:
 
         while right < len(s):
             if (s[right] not in seen) or (seen[s[right]] < left):
-                seen[s[right]] = right
                 longest = max(longest, 1 + right - left)
             else:
                 index = seen[s[right]]  # guaranteed index >= left
                 left = index + 1
-                seen[s[right]] = right
+
+            seen[s[right]] = right
             right += 1
 
         return longest
