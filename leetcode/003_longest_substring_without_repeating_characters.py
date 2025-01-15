@@ -1,5 +1,6 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        # Time O(n^2), Memory O(1)
         if len(s) <= 1:
             return len(s)
 
@@ -12,7 +13,7 @@ class Solution:
                 sub += s[right]
                 longest = max(longest, len(sub))
             else:
-                i = sub.index(s[right])
+                i = sub.index(s[right]) # this is O(n) - use hashmap to optimise
                 left = i + 1
                 sub = sub[left:] + s[right]
             right += 1
