@@ -19,6 +19,7 @@ class Solution:
                 right = mid - 1
 
     def search(self, nums: List[int], target: int) -> int:
+        # Time O(log(n)), Memory O(1)
         if len(nums) == 1:
             return (nums[0] == target) - 1
 
