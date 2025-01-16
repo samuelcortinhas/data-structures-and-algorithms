@@ -6,11 +6,9 @@ class Solution:
         # Time O(n), Memory O(1)
         max_area = 0
         left, right = 0, len(height) - 1
-        min_edge_height = 0
         while left < right:
-            if min(height[left], height[right]) > min_edge_height:
-                area = (right - left) * min(height[left], height[right])
-                max_area = max(area, max_area)
+            area = (right - left) * min(height[left], height[right])
+            max_area = max(area, max_area)
 
             if height[left] < height[right]:
                 left += 1
