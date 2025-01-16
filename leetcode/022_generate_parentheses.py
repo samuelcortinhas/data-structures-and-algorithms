@@ -5,7 +5,7 @@ class Solution:
     def isvalid(self, s, n):
         left = sum([1 for i in s if i == "("])
         right = len(s) - left
-        return left >= right and left <= n and right <= n
+        return left >= right and left <= n
 
     # def isvalid(self, s, n):
     #     stack = []
