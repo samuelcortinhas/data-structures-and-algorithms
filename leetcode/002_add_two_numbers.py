@@ -12,7 +12,7 @@ class Solution(object):
     def addTwoNumbers(
         self, l1: Optional[ListNode], l2: Optional[ListNode]
     ) -> Optional[ListNode]:
-        # Time O(n), Memory O(n) where n is max length of two linked lists
+        # Time O(n), Memory O(1) where n is max length of two linked lists
         head = ListNode()
         curr = head
         rem = 0
@@ -38,7 +38,7 @@ class Solution(object):
     #     :type l2: Optional[ListNode]
     #     :rtype: Optional[ListNode]
     #     """
-    #     # Time O(n), Memory O(n) where n is max length of two linked lists
+    #     # Time O(n), Memory O(1) where n is max length of two linked lists
     #     head = current = ListNode(0)
     #     rem = 0
 
