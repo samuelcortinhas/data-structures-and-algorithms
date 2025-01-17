@@ -11,7 +11,7 @@ class Solution(object):
         :type l2: Optional[ListNode]
         :rtype: Optional[ListNode]
         """
-        # Time O(n log n), Memory O(n)
+        # Time O(n+m), Memory O(n+m)
         current = ListNode()  # fake head
         head = current
 
