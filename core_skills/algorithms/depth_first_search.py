@@ -6,6 +6,7 @@ class TreeNode:
 
 
 def dfs(root):
+    # Time O(n), Memory O(h)
     if not root:
         return
     dfs(root.left)
