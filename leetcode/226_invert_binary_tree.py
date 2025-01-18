@@ -11,7 +11,7 @@ class TreeNode:
 
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-        # Time O(n), Memory O(1)
+        # Time O(n), Memory O(n)
         if root:
             tmp = root.left
             root.left = root.right
