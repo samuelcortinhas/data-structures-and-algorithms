@@ -6,7 +6,7 @@ class TreeNode:
 
 
 def search(root, target):
-    # Time O(log n), Memory O(1)
+    # Time O(h), Memory O(1) where h height of tree
     if not root:
         return None
 

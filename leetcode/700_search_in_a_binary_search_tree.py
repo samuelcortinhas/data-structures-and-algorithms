@@ -11,7 +11,8 @@ class TreeNode:
 
 class Solution:
     def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
-        # Time O(log n), Memory O(1)
+        # Time O(h), Memory O(1) where h is height of tree
+        # Time O(log n) on average, O(n) worst case
         if not root:
             return None
 
