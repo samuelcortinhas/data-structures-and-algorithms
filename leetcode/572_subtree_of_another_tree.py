@@ -27,7 +27,8 @@ class Solution:
         return False
 
     def isSubtree(self, root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
-        # Time O(n*m), Memory O(h) where n = #nodes in root and m = #nodes in subroot
+        # Time O(n*m), Memory O(s+t) where n = #nodes in root and m = #nodes in subroot
+        # and s = height of root tree and t = height of subroot tree
         if not root and not subRoot:
             return True
 
