@@ -9,7 +9,7 @@ class TreeNode:
 
 
 def bfs(root):
-    # Time O(n), Memory O(2^n)
+    # Time O(n), Memory O(n)
     queue = deque()
 
     if root:
@@ -29,7 +29,7 @@ def bfs(root):
 
 
 def bfs_simple(root):
-    # Time O(n), Memory O(2^n)
+    # Time O(n), Memory O(n)
     queue = deque()
 
     if root:
