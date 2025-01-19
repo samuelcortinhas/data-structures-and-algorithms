@@ -9,6 +9,7 @@ class TreeNode:
 
 
 def bfs(root):
+    # Time O(n), Memory O(2^n)
     queue = deque()
 
     if root:
@@ -27,6 +28,22 @@ def bfs(root):
         level += 1
 
 
+def bfs_simple(root):
+    # Time O(n), Memory O(2^n)
+    queue = deque()
+
+    if root:
+        queue.append(root)
+
+    while len(queue) > 0:
+        node = queue.popleft()
+        print(node.val)
+        if node.left:
+            queue.append(node.left)
+        if node.right:
+            queue.append(node.right)
+
+
 root = TreeNode(1)
 root.left = TreeNode(7)
 root.right = TreeNode(9)
@@ -40,3 +57,4 @@ root.left.left.left = TreeNode(3)
 # 3
 
 bfs(root)  # 1, 7, 9, 2, 5, 3
+bfs_simple(root)  # 1, 7, 9, 2, 5, 3
