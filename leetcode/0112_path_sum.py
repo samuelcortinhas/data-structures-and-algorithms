@@ -16,16 +16,12 @@ class Solution:
             if not node:
                 return False
 
+            currSum = pathSum + node.val
             if not node.left and not node.right:
-                if pathSum + node.val == targetSum:
-                    return True
-                else:
-                    return False
+                return currSum == targetSum
 
-            if dfs(node.left, pathSum + node.val, targetSum):
-                return True
-            if dfs(node.right, pathSum + node.val, targetSum):
-                return True
-            return False
+            return dfs(node.left, currSum, targetSum) or dfs(
+                node.right, currSum, targetSum
+            )
 
         return dfs(root, 0, targetSum)
