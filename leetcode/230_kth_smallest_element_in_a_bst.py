@@ -16,7 +16,7 @@ class Solution:
 
     def dfs(self, root, k):
         # in order dfs
-        if not root:
+        if not root or self.counter == k:
             return
 
         self.dfs(root.left, k)
