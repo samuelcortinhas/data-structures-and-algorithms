@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import Optional, List
 
 
 # Definition for a binary tree node.
@@ -10,7 +10,7 @@ class TreeNode:
 
 
 class Solution:
-    # Time O(n log n), Memory O(h)
+    # Time O(n*h), Memory O(h)
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         # preorder: root, left, right
         # inorder: left, root, right
