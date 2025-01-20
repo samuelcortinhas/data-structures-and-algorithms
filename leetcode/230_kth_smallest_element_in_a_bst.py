@@ -10,22 +10,45 @@ class TreeNode:
 
 
 class Solution:
-    def __init__(self):
-        self.counter = 0
-        self.res = None
-
-    def dfs(self, root, k):
-        # in order dfs
-        if not root or self.counter == k:
-            return
-
-        self.dfs(root.left, k)
-        self.counter += 1
-        if self.counter == k:
-            self.res = root.val
-        self.dfs(root.right, k)
-
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
-        # Time O(n), Memory O(h)
-        self.dfs(root, k)
-        return self.res
+        # Time O(k), Memory O(h)
+        counter = 0
+        stack = [root]
+        while stack:
+            node = stack[-1]
+
+            if node.left:
+                stack.append(node.left)
+                node.left = None
+                continue
+
+            counter += 1
+            stack.pop()
+            if counter == k:
+                return node.val
+
+            if node.right:
+                stack.append(node.right)
+                node.right = None
+
+
+# class Solution:
+#     def __init__(self):
+#         self.counter = 0
+#         self.res = None
+
+#     def dfs(self, root, k):
+#         # in order dfs
+#         if not root or self.counter == k:
+#             return
+
+#         self.dfs(root.left, k)
+#         self.counter += 1
+#         if self.counter == k:
+#             self.res = root.val
+#         self.dfs(root.right, k)
+
+#     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+#         # Time O(n), Memory O(h)
+#         self.dfs(root, k)
+#         return self.res
