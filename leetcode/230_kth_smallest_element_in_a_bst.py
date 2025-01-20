@@ -29,7 +29,6 @@ class Solution:
 
             if node.right:
                 stack.append(node.right)
-                node.right = None
 
 
 # class Solution:
