@@ -2,7 +2,6 @@ import heapq
 
 
 class MedianFinder:
-    # 2 heaps
     def __init__(self):
         # O(n) memory
         self.left = []  # max heap
