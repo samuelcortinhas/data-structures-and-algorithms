@@ -8,9 +8,6 @@ class Solution:
         heap = [-s for s in stones]
         heapq.heapify(heap)
         while len(heap) > 1:
-            if len(heap) == 2:
-                return heap[1] - heap[0]
-
             m1 = heapq.heappop(heap)
             m2 = heapq.heappop(heap)
 
