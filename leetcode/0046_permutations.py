@@ -9,6 +9,7 @@ class Solution:
         def dfs(stack):
             if len(stack) == len(nums):
                 res.append(list(stack))
+                return
 
             for j in range(len(nums)):
                 if nums[j] not in stack:
