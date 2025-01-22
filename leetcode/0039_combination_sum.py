@@ -2,6 +2,7 @@ from typing import List
 
 
 class Solution:
+    # Time O(t 2^t), Memory O(t 2^t) where t is the target
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         # backtracking
         res = []
