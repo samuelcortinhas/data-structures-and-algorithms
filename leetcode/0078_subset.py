@@ -1,4 +1,5 @@
 class Solution(object):
+    # Time O(2^n), Memory O(n 2^n)
     def subsets(self, nums):
         """
         :type nums: List[int]
