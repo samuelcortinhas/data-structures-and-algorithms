@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        # Time O(3^n), Memory O(n) where n=len(word)
+        # Time O(m*n*3^w), Memory O(w) where w=len(word)
         m, n = len(board), len(board[0])
         res = False
 
