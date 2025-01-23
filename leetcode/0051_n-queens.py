@@ -24,16 +24,13 @@ class Solution:
                 backtrack(stack)
                 stack.pop()
 
-        for i in range(n):
-            backtrack([i])
+        backtrack([])
 
         out = []
         for stack in res:
-            board = []
-            for s in stack:
-                row = ["."] * n
-                row[s] = "Q"
-                board.append("".join(row))
-            out.append(board)
+            board = [["."] * n for _ in range(n)]
+            for i, s in enumerate(stack):
+                board[i][s] = "Q"
+            out.append(["".join(b) for b in board])
 
         return out
