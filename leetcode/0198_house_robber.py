@@ -13,3 +13,16 @@ class Solution:
         for i in range(len(nums) - 3, -1, -1):
             bank[i] = max(nums[i] + bank[i + 2], bank[i + 1])
         return bank[0]
+
+    # def rob(self, nums: List[int]) -> int:
+    #     # Time O(n), Memory O(1)
+    #     if len(nums)==1:
+    #         return nums[0]
+
+    #     twoback = nums[-1]
+    #     oneback = max(nums[-2:])
+    #     for i in range(len(nums)-3, -1, -1):
+    #         curr = max(nums[i]+twoback, oneback)
+    #         twoback = oneback
+    #         oneback = curr
+    #     return oneback
