@@ -12,8 +12,4 @@ class Solution:
                 prev_one = bank
             return prev_one
 
-        return (
-            max(houserobber(nums[1:]), houserobber(nums[:-1]))
-            if len(nums) > 1
-            else nums[0]
-        )
+        return max(houserobber(nums[1:]), houserobber(nums[:-1]), nums[0])
