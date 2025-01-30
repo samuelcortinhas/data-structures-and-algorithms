@@ -6,9 +6,11 @@ class TrieNode:
 
 class WordDictionary:
     def __init__(self):
+        # Memory O(n*w) where n=#words, w=avg len(word)
         self.root = TrieNode()
 
     def addWord(self, word: str) -> None:
+        # Time O(w)
         curr = self.root
         for c in word:
             if c not in curr.children:
@@ -17,6 +19,7 @@ class WordDictionary:
         curr.word = True
 
     def search(self, word: str) -> bool:
+        # Time O(w * 26^2)
         def dfs(curr, index):
             if index == len(word):
                 return curr.word
