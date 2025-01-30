@@ -17,26 +17,21 @@ class WordDictionary:
         curr.word = True
 
     def search(self, word: str) -> bool:
-        return self.dfs(word, self.root)
+        def dfs(curr, index):
+            if index == len(word):
+                return curr.word
 
-    def dfs(self, word, curr):
-        for i, c in enumerate(word):
-            if c == ".":
-                if i == len(word) - 1:
-                    for v in curr.children.values():
-                        if v.word:
-                            return True
-                    return False
-
+            if word[index] == ".":
                 for v in curr.children.values():
-                    if self.dfs(word[i + 1 :], v):
+                    if dfs(v, index + 1):
                         return True
-                return False
 
-            elif c not in curr.children:
-                return False
-            curr = curr.children[c]
-        return curr.word
+            if word[index] in curr.children:
+                return dfs(curr.children[word[index]], index + 1)
+
+            return False
+
+        return dfs(self.root, 0)
 
 
 # Your WordDictionary object will be instantiated and called as such:
