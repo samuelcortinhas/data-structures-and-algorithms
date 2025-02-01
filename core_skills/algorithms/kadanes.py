@@ -1,7 +1,7 @@
 def kadanes(arr):
     # Time O(n), Memory O(1)
     curr_sum = 0
-    max_sum = arr[0]
+    max_sum = float("-inf")
     for n in arr:
         curr_sum = max(curr_sum, 0)
         curr_sum += n
