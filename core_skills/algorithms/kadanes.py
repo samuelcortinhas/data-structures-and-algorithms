@@ -1,4 +1,5 @@
 def kadanes(arr):
+    # Time O(n), Memory O(1)
     curr_sum = 0
     max_sum = arr[0]
     for n in arr:
