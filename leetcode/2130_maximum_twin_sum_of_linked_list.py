@@ -10,14 +10,15 @@ class ListNode:
 
 class Solution:
     def pairSum(self, head: Optional[ListNode]) -> int:
-        # Time O(n), Memory O(n)
+        # Time O(n), Memory O(1)
         prev = None
         slow, fast = head, head
         while fast and fast.next:
-            slow.prev = prev
-            prev = slow
-            slow = slow.next
             fast = fast.next.next
+            nxt = slow.next
+            slow.next = prev
+            prev = slow
+            slow = nxt
 
         right = slow
         left = prev
@@ -25,5 +26,24 @@ class Solution:
         while right:
             res = max(res, right.val + left.val)
             right = right.next
-            left = left.prev
+            left = left.next
         return res
+
+    # def pairSumDouble(self, head: Optional[ListNode]) -> int:
+    #     # Time O(n), Memory O(n)
+    #     prev = None
+    #     slow, fast = head, head
+    #     while fast and fast.next:
+    #         slow.prev = prev
+    #         prev = slow
+    #         slow = slow.next
+    #         fast = fast.next.next
+
+    #     right = slow
+    #     left = prev
+    #     res = 0
+    #     while right:
+    #         res = max(res, right.val + left.val)
+    #         right = right.next
+    #         left = left.prev
+    #     return res
