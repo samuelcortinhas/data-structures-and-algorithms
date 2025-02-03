@@ -10,18 +10,28 @@ class ListNode(object):
 
 class Solution(object):
     def hasCycle(self, head: Optional[ListNode]) -> bool:
-        # Floyd's Tortoise and Hare
         # Time O(n), Memory O(1)
-        if not head:
-            return False
-
-        slow, fast = head, head.next
+        slow, fast = head, head
         while fast and fast.next:
-            if slow == fast:
-                return True
             slow = slow.next
             fast = fast.next.next
+            if slow == fast:
+                return True
         return False
+
+    # def hasCycleFloyd(self, head: Optional[ListNode]) -> bool:
+    #     # Floyd's Tortoise and Hare
+    #     # Time O(n), Memory O(1)
+    #     if not head:
+    #         return False
+
+    #     slow, fast = head, head.next
+    #     while fast and fast.next:
+    #         if slow == fast:
+    #             return True
+    #         slow = slow.next
+    #         fast = fast.next.next
+    #     return False
 
     # def hasCycleTryExcept(self, head):
     #     """
