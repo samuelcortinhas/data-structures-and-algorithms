@@ -10,7 +10,7 @@ class ListNode:
 
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
-        # Time O(n log k), Memory O(n) where n = length of longest list
+        # Time O(n log k), Memory O(k) where n = length of longest list
         if not lists:
             return None
 
