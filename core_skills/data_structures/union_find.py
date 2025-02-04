@@ -30,3 +30,21 @@ class UnionFind:
             self.par[p1] = p2
             self.rank[p2] += 1
         return True
+
+
+class UnionFindSimple:
+    def __init__(self, n):
+        # Memory O(n)
+        self.par = [i for i in range(n)]
+
+    def find(self, p):
+        # Time O(log n)
+        while p != self.par[p]:
+            self.par[p] = self.par[self.par[p]]
+            p = self.par[p]
+        return p
+
+    def union(self, node1, node2):
+        # Time O(log n)
+        p1, p2 = self.find(node1), self.find(node2)
+        self.par[p2] = p1
