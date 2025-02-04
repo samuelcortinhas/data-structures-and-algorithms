@@ -5,6 +5,7 @@ class UnionFind:
     def __init__(self, n):
         self.par = [i for i in range(n)]
         self.height = [0] * n
+        self.n_components = n
 
     def find(self, p):
         while p != self.par[p]:
@@ -14,6 +15,8 @@ class UnionFind:
 
     def union(self, node1, node2):
         p1, p2 = self.find(node1), self.find(node2)
+        if p1 == p2:
+            return
         if self.height[p1] > self.height[p2]:
             self.par[p2] = p1
         elif self.height[p1] < self.height[p2]:
@@ -21,6 +24,7 @@ class UnionFind:
         else:
             self.par[p2] = p1
             self.height[p1] += 1
+        self.n_components -= 1
 
 
 class Solution:
@@ -29,8 +33,4 @@ class Solution:
         uf = UnionFind(n)
         for u, v in edges:
             uf.union(u, v)
-
-        reps = set()
-        for i in range(n):
-            reps.add(uf.find(i))
-        return len(reps)
+        return uf.self.n_components
