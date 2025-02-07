@@ -6,16 +6,18 @@ class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
         # Time O(n^2 log n), Memory O(n^2)
         n = len(grid)
-        visited = {}  # (i, j): min t
+        visited = set()  # (i, j)
+        max_height = 0
         heap = [(grid[0][0], (0, 0))]  # min t, (i,  j)
         while heap:
             el, (i, j) = heapq.heappop(heap)
             if (i, j) in visited:
                 continue
-            visited[(i, j)] = el
+            visited.add((i, j))
+            max_height = max(max_height, el)
 
             if (i, j) == (n - 1, n - 1):
-                return el
+                return max_height
 
             for dx, dy in [[1, 0], [0, 1], [-1, 0], [0, -1]]:
                 u, v = i + dx, j + dy
