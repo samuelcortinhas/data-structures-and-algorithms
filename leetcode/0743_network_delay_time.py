@@ -18,10 +18,10 @@ class Solution:
                 continue
             shortest[node] = dist
 
+            if len(shortest) == n:
+                return dist
+
             for v, t in adj_list[node]:
                 if v not in shortest:
                     heapq.heappush(heap, (dist + t, v))
-
-        if len(shortest) < n:
-            return -1
-        return max(shortest.values())
+        return -1
