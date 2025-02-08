@@ -8,6 +8,7 @@ class GraphNode:
 
 
 def topological_sort(nodes: List[GraphNode]):
+    # Time O(V+E), Memory O(V)
     visit = set()
     path = set()  # for cycle detection
     res = []
