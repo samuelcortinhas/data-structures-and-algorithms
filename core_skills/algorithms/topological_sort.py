@@ -8,22 +8,28 @@ class GraphNode:
 
 
 def topological_sort(nodes: List[GraphNode]):
-    n = len(nodes)
     visit = set()
+    path = set()  # for cycle detection
     res = []
+    cycle = False
 
     def dfs(node):
+        nonlocal cycle
+        if node in path:
+            cycle = True
+            return
         if node not in visit:
             visit.add(node)
+            path.add(node)
             for neigh in node.neighbours:
                 dfs(neigh)
             res.append(node.val)
+            path.remove(node)
 
     for node in nodes:
         dfs(node)
-        if len(visit) == n:
-            break
-
+        if cycle:
+            return False
     return res[::-1]
 
 
