@@ -33,7 +33,8 @@ def kruskals(edges, n_nodes):
     for u, v, _ in sorted_edges:
         if uf.union(u, v):
             mst.append([u, v])
-    return mst
+            if len(mst) == n_nodes - 1:
+                return mst
 
 
 edges = [
