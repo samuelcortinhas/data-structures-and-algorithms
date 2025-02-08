@@ -26,7 +26,7 @@ class UnionFind:
 
 
 def kruskals(edges, n_nodes):
-    # Time O(E log V), Memory O(E)
+    # Time O(E log V), Memory O(V)
     sorted_edges = sorted(edges, key=lambda x: x[2])  # (start node, end node, weight)
     uf = UnionFind(n_nodes)
     mst = []
