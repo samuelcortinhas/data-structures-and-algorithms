@@ -24,9 +24,7 @@ class Solution:
                         return False
             return True
 
-        if not dfs(0, None):
-            return False
-        return len(visit) == n
+        return dfs(0, None) and len(visit) == n
 
 
 # class Solution:
