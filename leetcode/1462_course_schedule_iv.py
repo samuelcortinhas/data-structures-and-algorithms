@@ -7,7 +7,7 @@ class Solution:
     def checkIfPrerequisite(
         self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]
     ) -> List[bool]:
-        # Time O(V^2 + Q), Memory O(V+E) where Q=len(queries)
+        # Time O(E^2 + Q), Memory O(V+E) where Q=len(queries)
         adj_list = defaultdict(list)
         for a, b in prerequisites:
             adj_list[a].append(b)
@@ -35,7 +35,7 @@ class Solution:
 #     def checkIfPrerequisite(
 #         self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]
 #     ) -> List[bool]:
-#         # Time O(V*Q), Memory O(V+E) where Q=len(queries)
+#         # Time O(E*Q), Memory O(V+E) where Q=len(queries)
 #         adj_list = defaultdict(list)
 #         for a, b in prerequisites:
 #             adj_list[a].append(b)
