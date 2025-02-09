@@ -8,6 +8,7 @@ class Solution:
         """
         Do not return anything, modify rooms in-place instead.
         """
+        # Time O(m*n), Memory O(m*n)
         m, n = len(rooms), len(rooms[0])
         queue = deque()
         for i in range(m):
