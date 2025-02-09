@@ -3,31 +3,56 @@ from typing import List
 
 
 class Solution:
-    # Precompute prereqs for all nodes - still too slow
+    # Precompute prereqs but only visit each node once
     def checkIfPrerequisite(
         self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]
     ) -> List[bool]:
-        # Time O(E^2 + Q), Memory O(V+E) where Q=len(queries)
+        # Time O(V*(V+E)+ V*Q), Memory O(V+E)
         adj_list = defaultdict(list)
         for a, b in prerequisites:
             adj_list[a].append(b)
 
-        def dfs(node, path, course_reqs):
-            if node in path:
-                return
+        prereq_map = defaultdict(set)
 
-            path.add(node)
-            course_reqs.add(node)
-            for neigh in adj_list[node]:
-                dfs(neigh, path, course_reqs)
-            path.remove(node)
-            return course_reqs
+        def dfs(node):
+            if node not in prereq_map:
+                for neigh in adj_list[node]:
+                    prereq_map[node] = prereq_map[node].union(dfs(neigh))
+                prereq_map[node].add(node)
+            return prereq_map[node]
 
-        all_reqs = [0] * numCourses
         for i in range(numCourses):
-            all_reqs[i] = dfs(i, set(), set())
+            dfs(i)
 
-        return [v in all_reqs[u] for u, v in queries]
+        return [v in prereq_map[u] for u, v in queries]
+
+
+# class Solution:
+#     # Precompute prereqs for all nodes - still too slow
+#     def checkIfPrerequisite(
+#         self, numCourses: int, prerequisites: List[List[int]], queries: List[List[int]]
+#     ) -> List[bool]:
+#         # Time O(E^2 + Q), Memory O(V+E) where Q=len(queries)
+#         adj_list = defaultdict(list)
+#         for a, b in prerequisites:
+#             adj_list[a].append(b)
+
+#         def dfs(node, path, course_reqs):
+#             if node in path:
+#                 return
+
+#             path.add(node)
+#             course_reqs.add(node)
+#             for neigh in adj_list[node]:
+#                 dfs(neigh, path, course_reqs)
+#             path.remove(node)
+#             return course_reqs
+
+#         all_reqs = [0] * numCourses
+#         for i in range(numCourses):
+#             all_reqs[i] = dfs(i, set(), set())
+
+#         return [v in all_reqs[u] for u, v in queries]
 
 
 # class Solution:
