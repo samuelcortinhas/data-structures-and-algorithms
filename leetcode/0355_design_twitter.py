@@ -7,7 +7,7 @@ class Twitter:
     def __init__(self):
         # Memory O(n*k+n*t) where n=#users, k=#followers t=#tweets
         self.count = 0  # proxy for timestamp
-        self.user_tweets = defaultdict(list)  # user: maxheap [count, tweet ids]
+        self.user_tweets = defaultdict(list)  # user: [count, tweet ids]
         self.follower_map = defaultdict(set)  # user: {user ids}
 
     def postTweet(self, userId: int, tweetId: int) -> None:
