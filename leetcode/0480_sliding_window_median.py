@@ -30,12 +30,16 @@ class Solution:
             i = self.right.index(num)
             self.right[i] = self.right[-1]
             self.right.pop()
-            heapq.heapify(self.right)
+            if i < len(self.right):
+                heapq._siftup(self.right, i)
+                heapq._siftdown(self.right, 0, i)
         else:
             i = self.left.index(-num)
             self.left[i] = self.left[-1]
             self.left.pop()
-            heapq.heapify(self.left)
+            if i < len(self.left):
+                heapq._siftup(self.left, i)
+                heapq._siftdown(self.left, 0, i)
         self.rebalance()
 
     def get_median(self):
@@ -48,7 +52,7 @@ class Solution:
             return self.right[0]
 
     def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
-        # Time O(n*k), Memory O(k)
+        # Time O(n log k), Memory O(k)
         for i in range(k):
             self.add_to_stream(nums[i])
 
