@@ -16,7 +16,7 @@ class Twitter:
         self.count -= 1  # key in maxheap
 
     def getNewsFeed(self, userId: int) -> List[int]:
-        # Time O(10 log k) where k=#followers
+        # Time O(k) where k=#followers
         res = []
         heap = []
         self.follower_map[userId].add(userId)
