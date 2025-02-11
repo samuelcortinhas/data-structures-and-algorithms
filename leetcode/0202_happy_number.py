@@ -9,7 +9,7 @@ class Solution:
     def isHappy(self, n: int) -> bool:
         slow = n
         fast = self.nextStep(n)
-        while slow != fast and fast != 1:
+        while slow != fast:
             slow = self.nextStep(slow)
             fast = self.nextStep(self.nextStep(fast))
         return fast == 1
