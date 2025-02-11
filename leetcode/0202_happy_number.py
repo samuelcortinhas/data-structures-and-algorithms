@@ -1,10 +1,7 @@
 class Solution:
     @staticmethod
     def nextStep(n):
-        res = 0
-        for digit in list(str(n)):
-            res += int(digit) ** 2
-        return res
+        return sum([int(d) ** 2 for d in str(n)])
 
     def isHappy(self, n: int) -> bool:
         slow = n
