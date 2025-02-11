@@ -4,6 +4,7 @@ class Solution:
         return sum([int(d) ** 2 for d in str(n)])
 
     def isHappy(self, n: int) -> bool:
+        # Time O(log n), Memory O(1)
         slow = n
         fast = self.nextStep(n)
         while slow != fast:
