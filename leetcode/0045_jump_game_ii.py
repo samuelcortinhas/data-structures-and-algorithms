@@ -10,13 +10,12 @@ class Solution:
         i = 0
         curr = nums[0]
         jumps = 1
-        while True:
-            if i + curr >= len(nums) - 1:
-                return jumps
+        while i + curr < len(nums) - 1:
             tmp = max([nums[i + j + 1] - (curr - (j + 1)) for j in range(curr)])
             i += curr
             curr = tmp
             jumps += 1
+        return jumps
 
     # # DP solution
     # def jump(self, nums: List[int]) -> int:
