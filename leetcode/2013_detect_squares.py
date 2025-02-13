@@ -20,16 +20,10 @@ class DetectSquares:
             if v == 0 or x == x_ref or y == y_ref:
                 continue
 
-            m = (y - y_ref) / (x - x_ref)
-            if m == 1:
-                corner1 = (min(x, point[0]), max(y, point[1]))
-                corner2 = (max(x, point[0]), min(y, point[1]))
-            elif m == -1:
-                corner1 = (max(x, point[0]), max(y, point[1]))
-                corner2 = (min(x, point[0]), min(y, point[1]))
-            else:
+            if abs((y - y_ref) / (x - x_ref)) != 1:
                 continue
 
+            corner1, corner2 = (x_ref, y), (x, y_ref)
             res += self.points[corner1] * self.points[corner2] * v
         return res
 
