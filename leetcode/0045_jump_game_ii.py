@@ -5,8 +5,6 @@ class Solution:
     # Greedy/ BFS solution
     def jump(self, nums: List[int]) -> int:
         # Time O(n), Memory O(1)
-        if len(nums) == 1:
-            return 0
         i = 0
         curr = nums[0]
         jumps = 1
@@ -15,7 +13,7 @@ class Solution:
             i += curr
             curr = tmp
             jumps += 1
-        return jumps
+        return jumps if len(nums) > 1 else 0
 
     # # DP solution
     # def jump(self, nums: List[int]) -> int:
