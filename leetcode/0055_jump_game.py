@@ -2,17 +2,26 @@ from typing import List
 
 
 class Solution:
-    # Dynamic Programming
+    # Greedy
     def canJump(self, nums: List[int]) -> bool:
-        # Time O(n*m), Memory O(n) where m=max(nums), n=len(nums)
-        dp = [False] * len(nums)
-        dp[-1] = True
+        # Time O(n), Memory O(1)
+        goal = len(nums) - 1
         for i in range(len(nums) - 2, -1, -1):
-            for j in range(nums[i]):
-                if dp[i + j + 1]:
-                    dp[i] = True
-                    break
-        return dp[0]
+            if i + nums[i] >= goal:
+                goal = i
+        return goal == 0
+
+    # # Dynamic Programming
+    # def canJump(self, nums: List[int]) -> bool:
+    #     # Time O(n*m), Memory O(n) where m=max(nums), n=len(nums)
+    #     dp = [False] * len(nums)
+    #     dp[-1] = True
+    #     for i in range(len(nums) - 2, -1, -1):
+    #         for j in range(nums[i]):
+    #             if dp[i + j + 1]:
+    #                 dp[i] = True
+    #                 break
+    #     return dp[0]
 
     # # Correct but too slow
     # def canJumpBruteForce(self, nums: List[int]) -> bool:
