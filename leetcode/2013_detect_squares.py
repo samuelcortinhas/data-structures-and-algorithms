@@ -17,12 +17,8 @@ class DetectSquares:
         x_ref, y_ref = point[0], point[1]
         res = 0
         for (x, y), v in list(self.points.items()):
-            if v == 0 or x == x_ref or y == y_ref:
+            if v == 0 or x == x_ref or y == y_ref or abs(y - y_ref) != abs(x - x_ref):
                 continue
-
-            if abs((y - y_ref) / (x - x_ref)) != 1:
-                continue
-
             corner1, corner2 = (x_ref, y), (x, y_ref)
             res += self.points[corner1] * self.points[corner2] * v
         return res
