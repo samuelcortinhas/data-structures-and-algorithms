@@ -16,7 +16,7 @@ class Solution:
 
     # # Correct but too slow
     # def canJumpBruteForce(self, nums: List[int]) -> bool:
-    #     # Time O(exponential), Memory O(1)
+    #     # Time O(n^m), Memory O(1)
     #     def backtrack(nums, index):
     #         if index == (len(nums) - 1):
     #             return True
