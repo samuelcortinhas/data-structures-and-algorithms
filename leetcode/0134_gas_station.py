@@ -18,7 +18,6 @@ class Solution:
                 continue
             if window_length == n:
                 return (i + 1) % n
-        return -1
 
     # def canCompleteCircuitV4(self, gas: List[int], cost: List[int]) -> int:
     #     # Time O(n), Memory O(1)
