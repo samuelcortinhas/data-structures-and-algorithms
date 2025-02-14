@@ -2,14 +2,13 @@ from typing import List
 
 
 class Solution:
-    def canCompleteCircuitV3(self, gas: List[int], cost: List[int]) -> int:
-        # Time O(n), Memory O(n)
+    def canCompleteCircuitV4(self, gas: List[int], cost: List[int]) -> int:
+        # Time O(n), Memory O(1)
         n = len(gas)
-        dp = [g - c for g, c in zip(gas, cost)]
         tank = 0
         window_length = 0
         for i in range(2 * n):
-            tank += dp[i % n]
+            tank += gas[i % n] - cost[i % n]
             window_length += 1
             if tank >= 0 and window_length == n:
                 return (i + 1) % n
@@ -18,6 +17,23 @@ class Solution:
                 window_length = 0
                 continue
         return -1
+
+    # def canCompleteCircuitV3(self, gas: List[int], cost: List[int]) -> int:
+    #     # Time O(n), Memory O(n)
+    #     n = len(gas)
+    #     dp = [g - c for g, c in zip(gas, cost)]
+    #     tank = 0
+    #     window_length = 0
+    #     for i in range(2 * n):
+    #         tank += dp[i % n]
+    #         window_length += 1
+    #         if tank >= 0 and window_length == n:
+    #             return (i + 1) % n
+    #         if tank < 0:
+    #             tank = 0
+    #             window_length = 0
+    #             continue
+    #     return -1
 
     # def canCompleteCircuitV2(self, gas: List[int], cost: List[int]) -> int:
     #     # Time O(n^2), Memory O(n)
