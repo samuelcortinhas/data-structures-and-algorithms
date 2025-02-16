@@ -12,6 +12,6 @@ class Solution:
                 res.append(curr)
                 curr = intervals[i]
             else:
-                curr = [min(curr[0], intervals[i][0]), max(curr[1], intervals[i][1])]
+                curr[1] = max(curr[1], intervals[i][1])
         res.append(curr)
         return res
