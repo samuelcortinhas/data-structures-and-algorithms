@@ -4,11 +4,11 @@ class Solution:
         leftmin, leftmax = 0, 0  # min/max num of "(" so far
         for c in s:
             if c == "(":
-                leftmax += 1
                 leftmin += 1
+                leftmax += 1
             elif c == ")":
-                leftmax -= 1
                 leftmin = max(leftmin - 1, 0)
+                leftmax -= 1
                 if leftmax < 0:
                     return False
             else:
