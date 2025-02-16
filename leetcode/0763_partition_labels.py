@@ -9,10 +9,9 @@ class Solution:
             last_occurence[char] = i
 
         res = []
-        size, max_size, end = 0, 0, 0
+        size, end = 0, 0
         for i, char in enumerate(s):
             size += 1
-            max_size = max(max_size, size)
             end = max(end, last_occurence[char])
             if i >= end:
                 res.append(size)
