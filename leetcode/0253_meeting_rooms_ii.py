@@ -14,7 +14,7 @@ class Solution:
         end.sort()
         i, j = 0, 0
         count, max_count = 0, 0
-        while i < len(intervals) and j < len(intervals):
+        while i < len(intervals):
             if start[i] < end[j]:
                 count += 1
                 max_count = max(max_count, count)
@@ -22,12 +22,6 @@ class Solution:
             else:
                 count -= 1
                 j += 1
-
-        while i < len(intervals):
-            count += 1
-            max_count = max(max_count, count)
-            i += 1
-
         return max_count
 
     # def minMeetingRoomsV1(self, intervals: List[List[int]]) -> int:
