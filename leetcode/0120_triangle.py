@@ -4,7 +4,7 @@ from typing import List
 class Solution:
     # dynamic programming
     def minimumTotal(self, triangle: List[List[int]]) -> int:
-        # Time O(n^2), Memory O(n), where n=#rows
+        # Time O(n^2), Memory O(1), where n=#rows
         for level in range(len(triangle) - 2, -1, -1):
             for row_index in range(level + 1):
                 triangle[level][row_index] += min(
