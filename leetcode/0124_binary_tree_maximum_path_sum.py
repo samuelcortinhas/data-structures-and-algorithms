@@ -22,9 +22,12 @@ class Solution:
             if not node:
                 return 0
 
-            l, r = dfs(node.left), dfs(node.right)
-            res = max([res, l + r + node.val, node.val + r, node.val + l, node.val])
-            return max(node.val, node.val + max(l, r))
+            l, r = max(dfs(node.left), 0), max(dfs(node.right), 0)
+            res = max(res, l + r + node.val)
+            return node.val + max(l, r)
+
+        dfs(root)
+        return res
 
         dfs(root)
         return res
