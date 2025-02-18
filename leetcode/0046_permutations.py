@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
-        # Time O(n^n), Memory O(n!)
+        # Time O(n!), Memory O(n!)
         res = []
 
         def backtrack(i, stack):
