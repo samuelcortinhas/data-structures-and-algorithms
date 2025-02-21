@@ -4,12 +4,21 @@ from typing import List
 class Solution:
     def rob(self, nums: List[int]) -> int:
         # Time O(n), Memory O(1)
-        prev_one, prev_two = 0, 0
-        for i in range(len(nums)):
-            bank = max(nums[i] + prev_two, prev_one)
-            prev_two = prev_one
-            prev_one = bank
-        return prev_one
+        prev, curr = 0, 0
+        for n in nums:
+            tmp = curr
+            curr = max(prev + n, curr)
+            prev = tmp
+        return curr
+
+    # def rob(self, nums: List[int]) -> int:
+    #     # Time O(n), Memory O(1)
+    #     prev_one, prev_two = 0, 0
+    #     for i in range(len(nums)):
+    #         bank = max(nums[i] + prev_two, prev_one)
+    #         prev_two = prev_one
+    #         prev_one = bank
+    #     return prev_one
 
     # def rob(self, nums: List[int]) -> int:
     #     # Time O(n), Memory O(n)
