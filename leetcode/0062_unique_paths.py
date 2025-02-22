@@ -1,8 +1,9 @@
 class Solution:
     # bottom up dp - memory efficient
     def uniquePaths(self, m: int, n: int) -> int:
+        # Time O(m*n), Memory O(n)
         prev_row = [0] * n
-        for i in range(m - 1, -1, -1):
+        for _ in range(m - 1, -1, -1):
             curr_row = [0] * n
             curr_row[-1] = 1
             for j in range(n - 2, -1, -1):
