@@ -7,15 +7,9 @@ class Solution:
         # Time O(m*n), Memory O(1)
         m, n = len(obstacleGrid), len(obstacleGrid[0])
 
-        if obstacleGrid[m - 1][n - 1] == 1:
-            return 0
-
         for i in range(m):
             for j in range(n):
-                if obstacleGrid[i][j] == 1:
-                    obstacleGrid[i][j] = 0
-                else:
-                    obstacleGrid[i][j] = 1
+                obstacleGrid[i][j] = 0 if obstacleGrid[i][j] else 1
 
         for i in range(m - 1, -1, -1):
             for j in range(n - 1, -1, -1):
