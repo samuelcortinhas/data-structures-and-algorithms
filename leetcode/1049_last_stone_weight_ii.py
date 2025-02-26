@@ -2,27 +2,39 @@ from typing import List
 
 
 class Solution:
-    # better brute force
+    # True dp solution
     def lastStoneWeightII(self, stones: List[int]) -> int:
-        # Time O(2^n), Memory O(2^n)
+        # Time O(len(stones) * sum(stones)), Memory O(sum(stones))
+        dp = set([stones[0], -stones[0]])
+        for weight in stones[1:]:
+            new_dp = set()
+            for s in dp:
+                new_dp.add(s + weight)
+                new_dp.add(s - weight)
+            dp = new_dp
+        return min([s if s >= 0 else float("inf") for s in dp])
 
-        # answer is each number with a + or - in front of it summed together
-        # backtrack of binary decision tree (+ or -) for each digit
-        def backtrack(i, stack):
-            if i == len(stones):
-                return sum(stack) if sum(stack) >= 0 else float("inf")
+    # # better brute force
+    # def lastStoneWeightII(self, stones: List[int]) -> int:
+    #     # Time O(2^n), Memory O(2^n)
 
-            stack.append(stones[i])
-            r1 = backtrack(i + 1, stack)
-            stack.pop()
+    #     # answer is each number with a + or - in front of it summed together
+    #     # backtrack of binary decision tree (+ or -) for each digit
+    #     def backtrack(i, stack):
+    #         if i == len(stones):
+    #             return sum(stack) if sum(stack) >= 0 else float("inf")
 
-            stack.append(-stones[i])
-            r2 = backtrack(i + 1, stack)
-            stack.pop()
+    #         stack.append(stones[i])
+    #         r1 = backtrack(i + 1, stack)
+    #         stack.pop()
 
-            return min(r1, r2)
+    #         stack.append(-stones[i])
+    #         r2 = backtrack(i + 1, stack)
+    #         stack.pop()
 
-        return backtrack(0, [])
+    #         return min(r1, r2)
+
+    #     return backtrack(0, [])
 
     # # brute force
     # def lastStoneWeightII(self, stones: List[int]) -> int:
