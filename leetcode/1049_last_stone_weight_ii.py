@@ -11,7 +11,6 @@ class Solution:
             elif len(arr) == 0:
                 return 0
 
-            new_arr = list(arr)
             new_res = float("inf")
             for i in range(len(arr)):
                 for j in range(i + 1, len(arr)):
