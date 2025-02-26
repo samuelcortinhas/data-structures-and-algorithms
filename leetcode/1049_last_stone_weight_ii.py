@@ -5,8 +5,8 @@ class Solution:
     # True dp solution
     def lastStoneWeightII(self, stones: List[int]) -> int:
         # Time O(len(stones) * sum(stones)), Memory O(sum(stones))
-        dp = set([stones[0], -stones[0]])
-        for weight in stones[1:]:
+        dp = {0}
+        for weight in stones:
             new_dp = set()
             for s in dp:
                 new_dp.add(s + weight)
