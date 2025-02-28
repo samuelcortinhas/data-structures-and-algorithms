@@ -11,7 +11,6 @@ class Solution:
             if dp[i][j] is not None:
                 return dp[i][j]
 
-            dp[i][j] = 1
             p1 = p2 = p3 = p4 = 0
             if i + 1 < m and matrix[i + 1][j] > matrix[i][j]:
                 p1 = dfs(i + 1, j)
@@ -22,7 +21,7 @@ class Solution:
             if j - 1 >= 0 and matrix[i][j - 1] > matrix[i][j]:
                 p4 = dfs(i, j - 1)
 
-            dp[i][j] += max(p1, p2, p3, p4)
+            dp[i][j] = 1 + max(p1, p2, p3, p4)
             return dp[i][j]
 
         for i in range(m):
