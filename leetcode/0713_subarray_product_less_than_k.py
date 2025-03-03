@@ -2,23 +2,37 @@ from typing import List
 
 
 class Solution:
-    # compute prefix products on demand - too slow
+    # sliding window
     def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
-        # Time O(n^2), Memory O(1)
-        left, right = 0, 0
+        # Time O(n), Memory O(1)
         res = 0
-        while left < len(nums):
-            right = left
-            p = 1
-            while right < len(nums):
-                p *= nums[right]
-                if p < k:
-                    res += 1
-                    right += 1
-                else:
-                    break
-            left += 1
+        left = 0
+        p = 1
+        for right in range(len(nums)):
+            p *= nums[right]
+            while p >= k and left <= right:
+                p //= nums[left]
+                left += 1
+            res += right - left + 1
         return res
+
+    # # compute prefix products on demand - too slow
+    # def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
+    #     # Time O(n^2), Memory O(1)
+    #     left, right = 0, 0
+    #     res = 0
+    #     while left < len(nums):
+    #         right = left
+    #         p = 1
+    #         while right < len(nums):
+    #             p *= nums[right]
+    #             if p < k:
+    #                 res += 1
+    #                 right += 1
+    #             else:
+    #                 break
+    #         left += 1
+    #     return res
 
     # compute prefix products - uses too much memory
     # def numSubarrayProductLessThanK(self, nums: List[int], k: int) -> int:
