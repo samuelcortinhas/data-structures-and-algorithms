@@ -9,35 +9,49 @@ class ListNode:
 
 
 class Solution:
-    # Time O(n), Memory O(1)
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
-        # create dummy list of length n
-        dummy = ListNode()
-        lag = dummy
-        for _ in range(n - 1):
-            dummy.next = ListNode()
-            dummy = dummy.next
-
-        # join dummy list to list
-        dummy.next = head
-
-        # iterate until end, then lag is (n+1)th from end
+        # Time O(n), Memory O(1)
+        res = lag = ListNode(next=head)
         curr = head
-        sz = 1
-        while curr.next:
-            sz += 1
+        for _ in range(n):
+            curr = curr.next
+
+        while curr:
             curr = curr.next
             lag = lag.next
 
-        # remove n-th node from end
         lag.next = lag.next.next
+        return res.next
 
-        # edge case if removing head
-        if n == sz:
-            return head.next
+    # def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
+    #     # Time O(n), Memory O(1)
+    #     # create dummy list of length n
+    #     dummy = ListNode()
+    #     lag = dummy
+    #     for _ in range(n - 1):
+    #         dummy.next = ListNode()
+    #         dummy = dummy.next
 
-        # return head
-        return head
+    #     # join dummy list to list
+    #     dummy.next = head
+
+    #     # iterate until end, then lag is (n+1)th from end
+    #     curr = head
+    #     sz = 1
+    #     while curr.next:
+    #         sz += 1
+    #         curr = curr.next
+    #         lag = lag.next
+
+    #     # remove n-th node from end
+    #     lag.next = lag.next.next
+
+    #     # edge case if removing head
+    #     if n == sz:
+    #         return head.next
+
+    #     # return head
+    #     return head
 
     # def removeNthFromEndTwoPasses(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
     #     # get size of list
