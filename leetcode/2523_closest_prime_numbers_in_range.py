@@ -3,15 +3,28 @@ from typing import List
 
 
 class Solution:
-    def closestPrimes(self, left: int, right: int) -> List[int]:
-        not_primes = set()
-        for i in range(2, 1 + math.ceil(math.sqrt(right))):
-            for j in range(left, right + 1):
-                if j % i == 0:
-                    not_primes.add(j)
+    def __init__(self):
+        self.primes = self.get_primes()
 
-        primes = set(range(left, right + 1)).difference(not_primes)
-        primes = sorted(list(primes))
+    @staticmethod
+    def get_primes(upper_limit=10**6):
+        primes = [True] * (upper_limit + 1)
+        for i, x in enumerate(primes):
+            if i < 2:
+                continue
+            if i > 1000:
+                break
+            if x:
+                k = 2
+                while k * i < upper_limit:
+                    primes[k * i] = False
+                    k += 1
+        primes[0] = False
+        primes[1] = False
+        return primes
+
+    def closestPrimes(self, left: int, right: int) -> List[int]:
+        primes = [i + left for i, p in enumerate(self.primes[left : right + 1]) if p]
         if len(primes) <= 1:
             return [-1, -1]
 
