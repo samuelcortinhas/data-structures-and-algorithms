@@ -3,35 +3,22 @@ from typing import List
 
 
 class Solution:
-    def __init__(self):
-        self.primes = self.get_primes()
-
-    @staticmethod
-    def get_primes(upper_limit=10**6):
-        primes = [True] * (upper_limit + 1)
-        for i, x in enumerate(primes):
-            if i < 2:
-                continue
-            if i > 1000:
-                break
-            if x:
-                k = 2
-                while k * i < upper_limit:
-                    primes[k * i] = False
-                    k += 1
-        primes[0] = False
-        primes[1] = False
-        return primes
-
     def closestPrimes(self, left: int, right: int) -> List[int]:
-        primes = [i + left for i, p in enumerate(self.primes[left : right + 1]) if p]
-        if len(primes) <= 1:
-            return [-1, -1]
+        # Time O(n log log n), Memory O(n), where n=right
+        sieve = [True] * (right + 1)
+        sieve[0] = sieve[1] = False
+        for i in range(2, 1 + int(math.sqrt(right))):
+            if sieve[i]:
+                k = 2
+                while k * i <= right:
+                    sieve[k * i] = False
+                    k += 1
 
+        primes = [i for i in range(left, right + 1) if sieve[i]]
         closest = float("inf")
-        res = None
+        res = [-1, -1]
         for k in range(1, len(primes)):
-            if primes[k] - primes[k - 1] < closest:
+            if (d := (primes[k] - primes[k - 1])) < closest:
                 res = [primes[k - 1], primes[k]]
-                closest = primes[k] - primes[k - 1]
+                closest = d
         return res
