@@ -2,9 +2,9 @@ from typing import List
 
 
 class Solution:
-    # cumulative sum of diffs
+    # memory optimised
     def numberOfAlternatingGroups(self, colors: List[int], k: int) -> int:
-        # Time O(n), Memory O(n)
+        # Time O(n), Memory O(1)
         diffs = [
             (colors[i] != colors[(i - 1) % len(colors)]) for i in range(len(colors))
         ]
@@ -16,14 +16,39 @@ class Solution:
             else:
                 start += 1
 
-        cumsum = [start]
+        res = 0
+        curr = start
         for d in diffs:
             if not d:
-                cumsum.append(0)
+                curr = 0
             else:
-                cumsum.append(1 + cumsum[-1])
+                curr += 1
+                if curr >= k - 1:
+                    res += 1
+        return res
 
-        return sum([1 for c in cumsum[1:] if c >= k - 1])
+    # # cumulative sum of diffs
+    # def numberOfAlternatingGroups(self, colors: List[int], k: int) -> int:
+    #     # Time O(n), Memory O(n)
+    #     diffs = [
+    #         (colors[i] != colors[(i - 1) % len(colors)]) for i in range(len(colors))
+    #     ]
+
+    #     start = 0
+    #     for d in diffs:
+    #         if not d:
+    #             start = 0
+    #         else:
+    #             start += 1
+
+    #     cumsum = [start]
+    #     for d in diffs:
+    #         if not d:
+    #             cumsum.append(0)
+    #         else:
+    #             cumsum.append(1 + cumsum[-1])
+
+    #     return sum([1 for c in cumsum[1:] if c >= k - 1])
 
     # # brute force
     # def numberOfAlternatingGroups(self, colors: List[int], k: int) -> int:
